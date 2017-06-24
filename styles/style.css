@@ -1,5 +1,17 @@
+/* Header, List items and checkout button */
+
+.clientName{
+  text-align: right;
+}
+
+.userButton{
+  transform: translateY(-3px);
+  opacity: 0.8;
+}
+
 main .itemMozaic{
   width: 100%;
+  height: 100%;
   margin-left: 2px;
 }
 
@@ -7,4 +19,32 @@ main .itemMozaic .item{
   width: 49%;
   text-align: center;
   display: inline-block;
+}
+
+div .imgContainer{
+  background-color: #FFF;
+}
+
+div .imgItem{
+  width: 150px;
+  height: 150px;
+  border: 0px;
+}
+
+#butCheckout{
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  height: 10%;
+  width: 100%;
+  letter-spacing: 2px;
+  background: rgba(63,81,181,0.8);
+  color: #FFF;
+  font-size: x-large;
+  font-weight: 300;
+}
+
+#butCheckout:active{
+  background: rgba(255,255,255,0.8);
+  color: #3F51B5;
 }

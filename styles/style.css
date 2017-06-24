@@ -1,0 +1,10 @@
+main .itemMozaic{
+  width: 100%;
+  margin-left: 2px;
+}
+
+main .itemMozaic .item{
+  width: 49%;
+  text-align: center;
+  display: inline-block;
+}

@@ -48,3 +48,22 @@ div .imgItem{
   background: rgba(255,255,255,0.8);
   color: #3F51B5;
 }
+
+/* Dialog */
+
+.dialog-container{
+  z-index: 2;
+}
+
+.dialog-image{
+  text-align: center;
+}
+
+.dialog-image img{
+  width: 60%;
+}
+
+.dialog-quantity_buttons{
+  text-align: center;
+  padding: 8px;
+}

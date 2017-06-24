@@ -7,13 +7,14 @@
     listItems: [],
     itemTemplate: document.querySelector('.item'),
     container: document.querySelector('.itemMozaic')
+    addDialog: document.querySelector('.dialog-container')
   };
 
   /*****************************************************************************
-   *
-   * Event listeners for UI elements
-   *
-   ****************************************************************************/
+  *
+  * Event listeners for UI elements
+  *
+  ****************************************************************************/
 
   document.getElementById('butCheckout').addEventListener('click', function() {
     console.log("clicked");
@@ -23,7 +24,6 @@
     app.getList();
   });
 
-  // app.getList = function(id, name) {
   app.getList = function() {
     var url = 'http://localhost:3000/items';
     // TODO add cache logic here
@@ -96,8 +96,42 @@
   // service worker
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker
-             .register('./service-worker.js')
-             .then(function() { console.log('Service Worker Registered'); });
+    .register('./service-worker.js')
+    .then(function() { console.log('Service Worker Registered'); });
   }
+
+  var cards = document.getElementsByClassName('item');
+  for (var i = 0; i < cards.length; i++) {
+    cards[i].addEventListener('click', function(event) {
+      var targetElement = event.target || event.srcElement;
+      while ((targetElement = targetElement.parentElement) && !targetElement.classList.contains("item"));
+      var title = targetElement.getElementsByClassName("demo-card-image__filename")[0].innerHTML;
+      var itemImage = targetElement.getElementsByClassName("imgItem")[0].src;
+      document.getElementById('dialog-item_title').textContent = title;
+      document.getElementById('dialog-item_image').src = itemImage;
+
+      // Open/show the add new city dialog
+      app.toggleAddDialog(true);
+    });
+  }
+
+  document.getElementById('butAddCancel').addEventListener('click', function() {
+    // Close the add new city dialog
+    app.toggleAddDialog(false);
+  });
+
+  /*****************************************************************************
+  *
+  * Methods to update/refresh the UI
+  *
+  ****************************************************************************/
+  // Toggles the visibility of the add new city dialog.
+  app.toggleAddDialog = function(visible) {
+    if (visible) {
+      app.addDialog.classList.add('dialog-container--visible');
+    } else {
+      app.addDialog.classList.remove('dialog-container--visible');
+    }
+  };
 
 })();

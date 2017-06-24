@@ -1,3 +1,4 @@
+/*Main page*/
 main .itemMozaic{
   width: 100%;
   margin-left: 2px;
@@ -7,4 +8,22 @@ main .itemMozaic .item{
   width: 49%;
   text-align: center;
   display: inline-block;
+}
+
+/*Dialog*/
+.dialog-container{
+  z-index: 2;
+}
+
+.dialog-image{
+  text-align: center;
+}
+
+.dialog-image img{
+  width: 60%;
+}
+
+.dialog-quantity_buttons{
+  text-align: center;
+  padding: 8px;
 }

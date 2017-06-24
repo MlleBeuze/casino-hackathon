@@ -26,14 +26,19 @@
       var targetElement = event.target || event.srcElement;
       while ((targetElement = targetElement.parentElement) && !targetElement.classList.contains("item"));
       var title = targetElement.getElementsByClassName("demo-card-image__filename")[0].innerHTML;
-      var itemImage = targetElement.getElementsByClassName("mdl-card__image")[0].src;
-      console.log(itemImage);
+      var itemImage = targetElement.getElementsByClassName("imgItem")[0].src;
       document.getElementById('dialog-item_title').textContent = title;
       document.getElementById('dialog-item_image').src = itemImage;
+      
       // Open/show the add new city dialog
       app.toggleAddDialog(true);
     });
   }
+  
+  document.getElementById('butAddCancel').addEventListener('click', function() {
+    // Close the add new city dialog
+    app.toggleAddDialog(false);
+  });
 
   /*****************************************************************************
    *

@@ -16,7 +16,9 @@
 
   <header class="header">
     <h1 class="header__title">Smart Caddie</h1>
-    <span>Mr Dupond</span>
+    <button class="userButton mdl-button mdl-js-button mdl-button--icon">
+      <i class="material-icons">person_outline</i>
+    </button>
   </header>
 
   <main class="main">
@@ -25,8 +27,8 @@
         <div class="mdl-card__title">
           <span class="demo-card-image__filename">Pain de mie</span>
         </div>
-        <div class="mdl-card__media" style="background-color: #FFF;">
-          <img class="mdl-card__image" src="http://www.lsa-conso.fr/mediatheque/6/0/5/000023506.jpg" width="150" height="150" border="0" alt="">
+        <div class="imgContainer mdl-card__media">
+          <img class="imgItem" src="http://www.lsa-conso.fr/mediatheque/6/0/5/000023506.jpg" alt="">
         </div>
         <div style="padding: 16px;">
           <div style="display: inline-block;width: 50%;">Prix: 1,5€</div><div style="display: inline-block;width: 50%;text-align: right;">Qté: 1</div>
@@ -36,8 +38,8 @@
         <div class="mdl-card__title">
           <span class="demo-card-image__filename">Pain de mie 2</span>
         </div>
-        <div class="mdl-card__media" style="background-color: #FFF;">
-          <img class="mdl-card__image" src="http://www.lsa-conso.fr/mediatheque/6/0/5/000023506.jpg" width="150" height="150" border="0" alt="">
+        <div class="imgContainer mdl-card__media">
+          <img class="imgItem" src="http://www.lsa-conso.fr/mediatheque/6/0/5/000023506.jpg" alt="">
         </div>
         <div style="padding: 16px;">
           <div style="display: inline-block;width: 50%;">Prix: 1,5€</div><div style="display: inline-block;width: 50%;text-align: right;">Qté: 1</div>
@@ -47,14 +49,51 @@
         <div class="mdl-card__title">
           <span class="demo-card-image__filename">Pain de mie 3</span>
         </div>
-        <div class="mdl-card__media" style="background-color: #FFF;">
-          <img class="mdl-card__image" src="http://www.lsa-conso.fr/mediatheque/6/0/5/000023506.jpg" width="150" height="150" border="0" alt="">
+        <div class="imgContainer mdl-card__media">
+          <img class="imgItem" src="http://www.lsa-conso.fr/mediatheque/6/0/5/000023506.jpg" alt="">
+        </div>
+        <div style="padding: 16px;">
+          <div style="display: inline-block;width: 50%;">Prix: 1,5€</div><div style="display: inline-block;width: 50%;text-align: right;">Qté: 1</div>
+        </div>
+      </div>
+      <div class="item mdl-card">
+        <div class="mdl-card__title">
+          <span class="demo-card-image__filename">Pain de mie</span>
+        </div>
+        <div class="imgContainer mdl-card__media">
+          <img class="imgItem" src="http://www.lsa-conso.fr/mediatheque/6/0/5/000023506.jpg" alt="">
+        </div>
+        <div style="padding: 16px;">
+          <div style="display: inline-block;width: 50%;">Prix: 1,5€</div><div style="display: inline-block;width: 50%;text-align: right;">Qté: 1</div>
+        </div>
+      </div>
+      <div class="item mdl-card">
+        <div class="mdl-card__title">
+          <span class="demo-card-image__filename">Pain de mie</span>
+        </div>
+        <div class="imgContainer mdl-card__media">
+          <img class="imgItem" src="http://www.lsa-conso.fr/mediatheque/6/0/5/000023506.jpg" alt="">
+        </div>
+        <div style="padding: 16px;">
+          <div style="display: inline-block;width: 50%;">Prix: 1,5€</div><div style="display: inline-block;width: 50%;text-align: right;">Qté: 1</div>
+        </div>
+      </div>
+      <div class="item mdl-card">
+        <div class="mdl-card__title">
+          <span class="demo-card-image__filename">Pain de mie</span>
+        </div>
+        <div class="imgContainer mdl-card__media">
+          <img class="imgItem" src="http://www.lsa-conso.fr/mediatheque/6/0/5/000023506.jpg" alt="">
         </div>
         <div style="padding: 16px;">
           <div style="display: inline-block;width: 50%;">Prix: 1,5€</div><div style="display: inline-block;width: 50%;text-align: right;">Qté: 1</div>
         </div>
       </div>
     </div>
+    <button id="butCheckout" class="mdl-button mdl-js-button mdl-button--raised">
+      Checkout (9€)
+    </button>
+
   </main>
 
   <div class="dialog-container">
@@ -73,6 +112,9 @@
         <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
           <i class="material-icons">remove</i>
         </button>
+      </div>
+      <div class="dialog-buttons">
+        <button id="butAddCancel" class="button">FERMER</button>
       </div>
     </div>
   </div>

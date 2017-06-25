@@ -1,6 +1,7 @@
 # Casino's Hackathon : 48H pour inventer les courses de demain
 
 L'application est une progressive web application (PWA), qui a plusieurs avantages par rapport à une application classique :
+* Rechargement quasiment instantané grâce à la mise en cache du conteneur et des données de l'application
 * Pas d'installation nécessaire depuis les stores
 * S'ouvre sur un navigateur peu importe son OS
 * Responsive, s'adapte aux différentes tailles d'écran
@@ -15,8 +16,13 @@ Notre projet a plusieurs avantages considérables :
 * Plus de paiements (CB directement liée au compte client à la manière d'un site e-commerce)
 * Clients autonomes
 
+Le Front-End est donc réalisé en HTML, CSS, Javascript.
 Pour le design, nous utilisons la librairie "Material Design Lite" https://getmdl.io/
-Cette librairie propose des composants épurés en accord avec la charte graphique de Google
+Cette librairie propose des composants épurés en accord avec la charte graphique de Google.
+
+Le Back-End est réalisé grâce à Node.js et son framework Express.js.
+
+Les données sont stockées sur une base de données noSQL qui est mongoDB.
 
 Le projet est organisé de cette manière :
 -

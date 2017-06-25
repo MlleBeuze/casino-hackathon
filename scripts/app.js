@@ -5,8 +5,9 @@
     isLoading: true,
     visibleItems: {},
     listItems: [],
+    totalPrice: 0,
     itemTemplate: document.querySelector('.item'),
-    container: document.querySelector('.itemMozaic')
+    container: document.querySelector('.itemMozaic'),
     addDialog: document.querySelector('.dialog-container')
   };
 
@@ -17,11 +18,11 @@
   ****************************************************************************/
 
   document.getElementById('butCheckout').addEventListener('click', function() {
-    console.log("clicked");
-    if (!app.listItems) {
-      app.listItems = [];
-    }
-    app.getList();
+
+  });
+
+  document.getElementById('butAddCancel').addEventListener('click', function() {
+    app.toggleAddDialog(false);
   });
 
   app.getList = function() {
@@ -59,18 +60,32 @@
       if (!item) {
         item = app.itemTemplate.cloneNode(true);
         item.classList.remove('itemMozaic');
-        console.log('item',item);
         item.removeAttribute('hidden');
         item.querySelector('.nameItem').textContent = list[data].name;
         item.querySelector('.imgItem').src = list[data].image;
-        item.querySelector('.priceItem').textContent = list[data].price;
-        item.querySelector('.quantityItem').textContent = list[data].quantity;
+        item.querySelector('.priceItem').textContent = "Prix: "+list[data].price+"€";
+        item.querySelector('.quantityItem').textContent = "Qté: "+list[data].quantity;
+        // update to total price for checkout
+        app.totalPrice += list[data].price * list[data].quantity;
+        document.getElementById('butCheckout').textContent = "Checkout ("+app.totalPrice+"€)";
+        // add listeners
+        item.addEventListener('click', function(event) {
+          var targetElement = event.target || event.srcElement;
+          while ((targetElement = targetElement.parentElement) && !targetElement.classList.contains("item"));
+          var title = targetElement.getElementsByClassName("demo-card-image__filename")[0].innerHTML;
+          var itemImage = targetElement.getElementsByClassName("imgItem")[0].src;
+          document.getElementById('dialog-item_title').textContent = title;
+          document.getElementById('dialog-item_image').src = itemImage;
+
+          // Open/show the add new city dialog
+          app.toggleAddDialog(true);
+        });
         // to fix design problem and create space between 2 <div>
         app.container.appendChild(document.createTextNode("\n"));
         app.container.appendChild(item);
         app.visibleItems[list[data]._id] = item;
 
-        app.listItems.push({_id: list[data]._id, name: list[data].name});
+        app.listItems.push(item);
         app.saveListItems();
       }
     }
@@ -90,6 +105,9 @@
   // For simplicity, we make a request every 5 seconds
   // to check if new data has been added to database
   window.setInterval(function(){
+    if (!app.listItems) {
+      app.listItems = [];
+    }
     app.getList();
   }, 5000);
 
@@ -102,23 +120,9 @@
 
   var cards = document.getElementsByClassName('item');
   for (var i = 0; i < cards.length; i++) {
-    cards[i].addEventListener('click', function(event) {
-      var targetElement = event.target || event.srcElement;
-      while ((targetElement = targetElement.parentElement) && !targetElement.classList.contains("item"));
-      var title = targetElement.getElementsByClassName("demo-card-image__filename")[0].innerHTML;
-      var itemImage = targetElement.getElementsByClassName("imgItem")[0].src;
-      document.getElementById('dialog-item_title').textContent = title;
-      document.getElementById('dialog-item_image').src = itemImage;
 
-      // Open/show the add new city dialog
-      app.toggleAddDialog(true);
-    });
   }
 
-  document.getElementById('butAddCancel').addEventListener('click', function() {
-    // Close the add new city dialog
-    app.toggleAddDialog(false);
-  });
 
   /*****************************************************************************
   *

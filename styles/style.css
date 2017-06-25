@@ -31,6 +31,20 @@ div .imgItem{
   border: 0px;
 }
 
+.infoItem{
+  padding: 16px;
+}
+
+.priceItem{
+  display: inline-block;
+}
+
+.quantityItem{
+  display: inline-block;
+  width: 50%;
+  text-align: right;
+}
+
 #butCheckout{
   position: absolute;
   bottom: 0;

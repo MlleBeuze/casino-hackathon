@@ -25,7 +25,7 @@ Côté Serveur : https://github.com/rzakraoui/Hackathon-casino-Backend
 
 +  package.json        <--- liste les dépendances
 +  server.js           <--- Setup de la BDD // Lance le serveur
-+  /api 
++  /api
 +    /controllers
 +      itemCtrl.js     <--- opérations en base de données pour les items
 +      userCtrl.js     <--- opérations en base de données pour les users
@@ -45,16 +45,19 @@ Côté Client : https://github.com/MlleBeuze/casino-hackathon
 -   /styles
 -     inline.css         <--- CSS par défaut pour le Material Design
 -     style.css          <--- CSS personnel
-    
+
 Instructions de build :
 -
 ### Setup backend #
-1. Dans un terminal, lancer mongod depuis son répertoire d'install /n \n
+
+Vous pouvez utiliser des données "en dur" en décommentant la ligne 132 (var response) de app.js, à ce moment mongo ainsi que toute la partie backend n'est pas nécessaire
+1. Dans un terminal, lancer mongod depuis son répertoire d'install
 2. git clone https://github.com/rzakraoui/Hackathon-casino-Backend
 3. cd Hackathon-casino-Backend
 4. npm i
 5. npm start
 ### Setup frontend #
+
 6. git clone https://github.com/MlleBeuze/casino-hackathon
 7. cd casino-hackathon
 8. Installer web server pour Chrome : https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en

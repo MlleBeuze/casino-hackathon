@@ -76,8 +76,8 @@ div .img-item{
 }
 
 #butCheckout:active{
-  background: rgba(255,255,255,0.8);
-  color: #3F51B5;
+  background: rgba(197,215,0,0.8);
+  color: white;
 }
 
 .mdl-card__title{

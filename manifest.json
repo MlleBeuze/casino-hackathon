@@ -1,11 +1,6 @@
 {
   "name": "Smart Caddie",
   "short_name": "Smart Caddie",
-  "icons": [{
-      "src": "images/icons/icon-152x152.png",
-      "sizes": "152x152",
-      "type": "image/png"
-    }],
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#3E4EB8",

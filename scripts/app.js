@@ -37,6 +37,16 @@
     app.toggleShowUserDialog(false);
   });
   
+  document.getElementById('butAddQuantity').addEventListener('click', function() {
+    // Add item quantity
+    app.addQuantity();
+  });
+  
+  document.getElementById('butRemoveQuantity').addEventListener('click', function() {
+    // Remove item quantity
+    app.removeQuantity();
+  });
+  
   /*****************************************************************************
    *
    * Methods to update/refresh the UI
@@ -74,21 +84,29 @@
         item.querySelector('.quantity').textContent = list[data].quantity;
         // update to total price for checkout
         app.totalPrice += list[data].price * list[data].quantity;
-        document.getElementById('butCheckout').textContent = "Checkout ("+app.totalPrice+"€)";
+        document.getElementById('butCheckout').textContent = "Payer ("+app.totalPrice+"€)";
         
         // add listeners on item click
         item.addEventListener('click', function(event) {
+          // Get DOM element
           var targetElement = event.target || event.srcElement;
+          
+          // Get his parent with class "item"
           while ((targetElement = targetElement.parentElement) && !targetElement.classList.contains("item"));
+          
+          // Set the title of the item to the dialog title; same thing for the image
           var title = targetElement.getElementsByClassName("demo-card-image__filename")[0].innerHTML;
           var itemImage = targetElement.getElementsByClassName("img-item")[0].src;
+          var quantity = targetElement.getElementsByClassName("quantity")[0].innerHTML;
+          
           document.getElementById('dialogItemTitle').textContent = title;
           document.getElementById('dialogItemImage').src = itemImage;
+          document.getElementById('quantity').textContent = quantity;
           
           // Open show item dialog
           app.toggleShowItemDialog(true);
         });
-        // to fix design problem and create space between 2 <div>
+        // to fix design problem and create space between 2 divs
         app.container.appendChild(document.createTextNode("\n"));
         app.container.appendChild(item);
         app.visibleItems[list[data]._id] = item;
@@ -96,6 +114,18 @@
         app.listItems.push(item);
         app.saveListItems();
       }
+    }
+  };
+  
+  app.addQuantity = function(){
+    var quantity = parseInt(document.getElementById('quantity').textContent);
+    document.getElementById('quantity').textContent = ++quantity;
+  };
+  
+  app.removeQuantity = function(){
+    var quantity = parseInt(document.getElementById('quantity').textContent);
+    if(quantity > 0){
+      document.getElementById('quantity').textContent = --quantity;
     }
   };
   
@@ -108,18 +138,18 @@
   app.getList = function() {
     var url = 'http://localhost:3000/items';
     // TODO add cache logic here
-    // if ('caches' in window) {
-    //   caches.match(url).then(function(response) {
-    //     if (response) {
-    //       response.json().then(function updateFromCache(json) {
-    //         // var results = json.query;
-    //         // results.id = id;
-    //         // results.name = name;
-    //         app.updateItems(json);
-    //       });
-    //     }
-    //   });
-    // }
+    if ('caches' in window) {
+      caches.match(url).then(function(response) {
+        if (response) {
+          response.json().then(function updateFromCache(json) {
+            // var results = json.query;
+            // results.id = id;
+            // results.name = name;
+            app.updateItems(json);
+          });
+        }
+      });
+    }
     // Fetch the latest data.
     var request = new XMLHttpRequest();
     request.onreadystatechange = function() {

@@ -5,7 +5,8 @@
     isLoading: true,
     spinner: document.querySelector('.loader'),
     container: document.querySelector('.main'),
-    addDialog: document.querySelector('.dialog-container')
+    showItemDialog: document.querySelector('.dialog-container_showItem'),
+    showUserDialog: document.querySelector('.dialog-container_showUser')
   };
 
 
@@ -30,27 +31,46 @@
       document.getElementById('dialog-item_title').textContent = title;
       document.getElementById('dialog-item_image').src = itemImage;
       
-      // Open/show the add new city dialog
-      app.toggleAddDialog(true);
+      // Open/show the show item dialog
+      app.toggleShowItemDialog(true);
     });
   }
   
-  document.getElementById('butAddCancel').addEventListener('click', function() {
-    // Close the add new city dialog
-    app.toggleAddDialog(false);
+  document.getElementById('butShowItemCancel').addEventListener('click', function() {
+    // Close the show item dialog
+    app.toggleShowItemDialog(false);
   });
-
+  
+  document.getElementById('userProfileBtn').addEventListener('click', function(){
+    // Open/show the show user dialog
+    app.toggleShowUserDialog(true);
+  });
+  
+  document.getElementById('butShowUserCancel').addEventListener('click', function() {
+    // Close the show user dialog
+    app.toggleShowUserDialog(false);
+  });
+  
   /*****************************************************************************
    *
    * Methods to update/refresh the UI
    *
    ****************************************************************************/
-  // Toggles the visibility of the add new city dialog.
-  app.toggleAddDialog = function(visible) {
+  // Toggles the visibility of the show item dialog.
+  app.toggleShowItemDialog = function(visible) {
     if (visible) {
-      app.addDialog.classList.add('dialog-container--visible');
+      app.showItemDialog.classList.add('dialog-container--visible');
     } else {
-      app.addDialog.classList.remove('dialog-container--visible');
+      app.showItemDialog.classList.remove('dialog-container--visible');
+    }
+  };
+  
+  // Toggles the visibility of the show user dialog.
+  app.toggleShowUserDialog = function(visible) {
+    if (visible) {
+      app.showUserDialog.classList.add('dialog-container--visible');
+    } else {
+      app.showUserDialog.classList.remove('dialog-container--visible');
     }
   };
 

@@ -51,8 +51,19 @@ div .imgItem{
 
 /* Dialog */
 
+.dialog{
+  background-image: url("http://www.webdesigndev.com/wp-content/uploads/2013/06/Subtle-Grey-Tileable-Pattern.jpg");
+}
+
 .dialog-container{
   z-index: 2;
+}
+
+.dialog-title{
+  padding-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 100;
 }
 
 .dialog-image{
@@ -61,9 +72,15 @@ div .imgItem{
 
 .dialog-image img{
   width: 60%;
+  margin-bottom: 20px;
 }
 
 .dialog-quantity_buttons{
   text-align: center;
   padding: 8px;
+}
+
+.dialog-credit_card *,
+.dialog-loyalty_points *{
+  vertical-align: middle;
 }

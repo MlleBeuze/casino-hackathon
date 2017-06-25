@@ -7,7 +7,7 @@
     listItems: [],
     totalPrice: 0,
     itemTemplate: document.querySelector('.item'),
-    container: document.querySelector('.itemMozaic'),
+    container: document.querySelector('.item-mozaic'),
     showItemDialog: document.querySelector('.dialog-container_showItem'),
     showUserDialog: document.querySelector('.dialog-container_showUser')
   };
@@ -66,23 +66,24 @@
       var item = app.visibleItems[list[data]._id];
       if (!item) {
         item = app.itemTemplate.cloneNode(true);
-        item.classList.remove('itemMozaic');
+        item.classList.remove('item-mozaic');
         item.removeAttribute('hidden');
-        item.querySelector('.nameItem').textContent = list[data].name;
-        item.querySelector('.imgItem').src = list[data].image;
+        item.querySelector('.name-item').textContent = list[data].name;
+        item.querySelector('.img-item').src = list[data].image;
         item.querySelector('.price').textContent = list[data].price;
         item.querySelector('.quantity').textContent = list[data].quantity;
         // update to total price for checkout
         app.totalPrice += list[data].price * list[data].quantity;
         document.getElementById('butCheckout').textContent = "Checkout ("+app.totalPrice+"€)";
-        // add listeners
+        
+        // add listeners on item click
         item.addEventListener('click', function(event) {
           var targetElement = event.target || event.srcElement;
           while ((targetElement = targetElement.parentElement) && !targetElement.classList.contains("item"));
           var title = targetElement.getElementsByClassName("demo-card-image__filename")[0].innerHTML;
-          var itemImage = targetElement.getElementsByClassName("imgItem")[0].src;
-          document.getElementById('dialog-item_title').textContent = title;
-          document.getElementById('dialog-item_image').src = itemImage;
+          var itemImage = targetElement.getElementsByClassName("img-item")[0].src;
+          document.getElementById('dialogItemTitle').textContent = title;
+          document.getElementById('dialogItemImage').src = itemImage;
           
           // Open show item dialog
           app.toggleShowItemDialog(true);

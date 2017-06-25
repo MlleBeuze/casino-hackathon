@@ -13,52 +13,52 @@ html, body, h1, h2, button{
   opacity: 0.8;
 }
 
-main .itemMozaic{
+main .item-mozaic{
   width: 100%;
   margin-bottom: 60px;
   margin-left: 2px;
 }
 
-main .itemMozaic .item{
+main .item-mozaic .item{
   width: 49%;
   min-height: 252px;
   display: inline-block;
 }
 
-div .imgContainer{
+div .img-container{
   height: 150px;
   background-color: #FFF;
   text-align: center;
 }
 
-div .imgItem{
+div .img-item{
   max-width: 100%;
   max-height: 150px;
   border: 0px;
 }
 
-.infoItem{
+.info-item{
   padding: 16px 10px;
   font-weight: bold;
   color: #006B31;
 }
 
-.priceItem{
+.price-item{
   display: inline-block;
 }
 
-.priceItem * {
+.price-item * {
   vertical-align: middle;
 }
 
-.quantityItem{
+.quantity-item{
   display: inline-block;
   width: 50%;
   float: right;
   text-align: right;
 }
 
-.quantityItem *{
+.quantity-item *{
   vertical-align: middle;
 }
 

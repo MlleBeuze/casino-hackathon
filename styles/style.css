@@ -1,3 +1,7 @@
+html, body, h1, h2, button{
+  font-family: "Avenir","Helvetica","Arial",sans-serif !important;
+}
+
 /* Header, List items and checkout button */
 
 .clientName{
@@ -18,13 +22,13 @@ main .itemMozaic{
 main .itemMozaic .item{
   width: 49%;
   min-height: 252px;
-  text-align: center;
   display: inline-block;
 }
 
 div .imgContainer{
   height: 150px;
   background-color: #FFF;
+  text-align: center;
 }
 
 div .imgItem{
@@ -34,17 +38,28 @@ div .imgItem{
 }
 
 .infoItem{
-  padding: 16px;
+  padding: 16px 10px;
+  font-weight: bold;
+  color: #006B31;
 }
 
 .priceItem{
   display: inline-block;
 }
 
+.priceItem * {
+  vertical-align: middle;
+}
+
 .quantityItem{
   display: inline-block;
   width: 50%;
+  float: right;
   text-align: right;
+}
+
+.quantityItem *{
+  vertical-align: middle;
 }
 
 #butCheckout{
@@ -54,7 +69,7 @@ div .imgItem{
   height: 10%;
   width: 100%;
   letter-spacing: 2px;
-  background: rgba(63,81,181,0.8);
+  background-color: #006B31;
   color: #FFF;
   font-size: x-large;
   font-weight: 300;
@@ -63,6 +78,12 @@ div .imgItem{
 #butCheckout:active{
   background: rgba(255,255,255,0.8);
   color: #3F51B5;
+}
+
+.mdl-card__title{
+  background-color: #C6D60E;
+  color: white !important;
+  font-weight: bold;
 }
 
 /* Dialog */
@@ -80,6 +101,8 @@ div .imgItem{
   text-align: center;
   text-transform: uppercase;
   font-weight: 100;
+  background-color: #006B31;;
+  color: white;
 }
 
 .dialog-image{
@@ -96,7 +119,26 @@ div .imgItem{
   padding: 8px;
 }
 
+.dialog-buttons{
+  background-color: #C5D700;
+}
+
+.dialog-buttons *{
+  color: white;
+}
+
 .dialog-credit_card *,
 .dialog-loyalty_points *{
   vertical-align: middle;
+}
+
+/* Material Buttons */
+.mdl-button--fab.mdl-button--mini-fab{
+  height: 30px !important;
+  min-width: 30px !important;
+  width: 30px !important;
+}
+
+.mdl-button--fab.mdl-button--colored {
+  background: #006B31 !important;
 }

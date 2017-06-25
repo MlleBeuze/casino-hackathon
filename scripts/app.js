@@ -70,8 +70,8 @@
         item.removeAttribute('hidden');
         item.querySelector('.nameItem').textContent = list[data].name;
         item.querySelector('.imgItem').src = list[data].image;
-        item.querySelector('.priceItem').textContent = "Prix: "+list[data].price+"€";
-        item.querySelector('.quantityItem').textContent = "Qté: "+list[data].quantity;
+        item.querySelector('.price').textContent = list[data].price;
+        item.querySelector('.quantity').textContent = list[data].quantity;
         // update to total price for checkout
         app.totalPrice += list[data].price * list[data].quantity;
         document.getElementById('butCheckout').textContent = "Checkout ("+app.totalPrice+"€)";

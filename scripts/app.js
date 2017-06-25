@@ -77,8 +77,7 @@
           document.getElementById('dialog-item_title').textContent = title;
           document.getElementById('dialog-item_image').src = itemImage;
 
-          // Open/show the add new city dialog
-          app.toggleAddDialog(true);
+          // app.toggleAddDialog(true);
         });
         // to fix design problem and create space between 2 <div>
         app.container.appendChild(document.createTextNode("\n"));

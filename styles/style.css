@@ -11,24 +11,40 @@
 
 main .itemMozaic{
   width: 100%;
-  height: 100%;
+  margin-bottom: 60px;
   margin-left: 2px;
 }
 
 main .itemMozaic .item{
   width: 49%;
+  min-height: 252px;
   text-align: center;
   display: inline-block;
 }
 
 div .imgContainer{
+  height: 150px;
   background-color: #FFF;
 }
 
 div .imgItem{
-  width: 150px;
-  height: 150px;
+  max-width: 100%;
+  max-height: 150px;
   border: 0px;
+}
+
+.infoItem{
+  padding: 16px;
+}
+
+.priceItem{
+  display: inline-block;
+}
+
+.quantityItem{
+  display: inline-block;
+  width: 50%;
+  text-align: right;
 }
 
 #butCheckout{

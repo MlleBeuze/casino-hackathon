@@ -9,30 +9,37 @@
   <link rel="stylesheet" type="text/css" href="styles/style.css">
   <link rel="manifest" href="/manifest.json">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-blue.min.css" />
   <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 </head>
 <body>
-
+  <!-- Header bar with user account icon -->
   <header class="header">
     <h1 class="header__title">Smart Caddie</h1>
-    <button class="userButton mdl-button mdl-js-button mdl-button--icon">
+    <button id="userProfileBtn" class="userButton mdl-button mdl-js-button mdl-button--icon">
       <i class="material-icons">person_outline</i>
     </button>
   </header>
-
+  <!-- main container with list of items and checkout button -->
   <main class="main">
-    <div class="itemMozaic">
+    <div class="item-mozaic">
+      <!-- generic template for item, that will be duplicated when fetching new items -->
       <div class="item mdl-card" hidden>
         <div class="mdl-card__title">
-          <span class="nameItem demo-card-image__filename"></span>
+          <span class="name-item demo-card-image__filename"></span>
         </div>
-        <div class="imgContainer mdl-card__media">
-          <img class="imgItem" src="" alt="">
+        <div class="img-container mdl-card__media">
+          <img class="img-item" src="" alt="">
         </div>
-        <div class="infoItem">
-          <div class="priceItem"></div>
-          <div class="quantityItem"></div>
+        <div class="info-item">
+          <div class="price-item">
+            <i class="material-icons">euro_symbol</i>
+            <span class="price"></span>
+          </div>
+          <div class="quantity-item">
+            <i class="material-icons">add_shopping_cart</i>
+            <span class="quantity"></span>
+          </div>
         </div>
       </div>
     </div>
@@ -41,16 +48,17 @@
     </button>
   </main>
 
-  <div class="dialog-container">
+  <!-- modal lorsqu'on clique sur un item -->
+  <div class="dialog-container dialog-container_showItem">
     <div class="dialog">
-      <div id="dialog-item_title" class="dialog-title"></div>
-      <div id="dialog-item_body" class="dialog-body">
+      <div id="dialogItemTitle" class="dialog-title"></div>
+      <div id="dialogItemBody" class="dialog-body">
         <div class="dialog-image">
-          <img id="dialog-item_image"/>
+          <img id="dialogItemImage"/>
         </div>
       </div>
       <div class="dialog-quantity_buttons">
-        Quantité: <span id="quantité"></span>
+        Quantité: <span id="quantity"></span>
         <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
           <i class="material-icons">add</i>
         </button>
@@ -59,16 +67,32 @@
         </button>
       </div>
       <div class="dialog-buttons">
-        <button id="butAddCancel" class="button">FERMER</button>
+        <button id="butShowItemCancel" class="button">FERMER</button>
       </div>
     </div>
   </div>
-
-  <!-- <div class="loader">
-  <svg viewBox="0 0 32 32" width="32" height="32">
-  <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
-</svg>
-</div> -->
+  <!-- modal lorsqu'on clique sur l'icon user -->
+  <div class="dialog-container dialog-container_showUser">
+    <div class="dialog">
+      <div class="dialog-title">Nicolas Dupont</div>
+      <div class="dialog-body">
+        <div class="dialog-image">
+          <img src="http://ekladata.com/cgX73l1rNUKVeZ9z1BxwPpGs0ZA.png"/>
+        </div>
+        <div class="dialog-credit_card">
+            <i class="material-icons">credit_card</i>
+            <span id="cardNumber">1234 5678 9012 3XXX</span>
+        </div>
+        <div class="dialog-loyalty_points">
+          <i class="material-icons">card_membership</i>
+          <span id="loyaltyPoints">256</span> points
+        </div>
+      </div>
+      <div class="dialog-buttons">
+        <button id="butShowUserCancel" class="button">FERMER</button>
+      </div>
+    </div>
+  </div>
 
 <script src="scripts/app.js" async></script>
 

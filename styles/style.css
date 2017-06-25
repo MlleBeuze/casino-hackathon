@@ -1,3 +1,7 @@
+html, body, h1, h2, button{
+  font-family: "Avenir","Helvetica","Arial",sans-serif !important;
+}
+
 /* Header, List items and checkout button */
 
 .clientName{
@@ -9,42 +13,53 @@
   opacity: 0.8;
 }
 
-main .itemMozaic{
+main .item-mozaic{
   width: 100%;
   margin-bottom: 60px;
   margin-left: 2px;
 }
 
-main .itemMozaic .item{
+main .item-mozaic .item{
   width: 49%;
   min-height: 252px;
-  text-align: center;
   display: inline-block;
 }
 
-div .imgContainer{
+div .img-container{
   height: 150px;
   background-color: #FFF;
+  text-align: center;
 }
 
-div .imgItem{
+div .img-item{
   max-width: 100%;
   max-height: 150px;
   border: 0px;
 }
 
-.infoItem{
-  padding: 16px;
+.info-item{
+  padding: 16px 10px;
+  font-weight: bold;
+  color: #006B31;
 }
 
-.priceItem{
+.price-item{
   display: inline-block;
 }
 
-.quantityItem{
+.price-item * {
+  vertical-align: middle;
+}
+
+.quantity-item{
   display: inline-block;
   width: 50%;
+  float: right;
   text-align: right;
+}
+
+.quantity-item *{
+  vertical-align: middle;
 }
 
 #butCheckout{
@@ -54,7 +69,7 @@ div .imgItem{
   height: 10%;
   width: 100%;
   letter-spacing: 2px;
-  background: rgba(63,81,181,0.8);
+  background-color: #006B31;
   color: #FFF;
   font-size: x-large;
   font-weight: 300;
@@ -65,10 +80,29 @@ div .imgItem{
   color: #3F51B5;
 }
 
+.mdl-card__title{
+  background-color: #C6D60E;
+  color: white !important;
+  font-weight: bold;
+}
+
 /* Dialog */
+
+.dialog{
+  background-image: url("http://www.webdesigndev.com/wp-content/uploads/2013/06/Subtle-Grey-Tileable-Pattern.jpg");
+}
 
 .dialog-container{
   z-index: 2;
+}
+
+.dialog-title{
+  padding-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 100;
+  background-color: #006B31;;
+  color: white;
 }
 
 .dialog-image{
@@ -77,9 +111,34 @@ div .imgItem{
 
 .dialog-image img{
   width: 60%;
+  margin-bottom: 20px;
 }
 
 .dialog-quantity_buttons{
   text-align: center;
   padding: 8px;
+}
+
+.dialog-buttons{
+  background-color: #C5D700;
+}
+
+.dialog-buttons *{
+  color: white;
+}
+
+.dialog-credit_card *,
+.dialog-loyalty_points *{
+  vertical-align: middle;
+}
+
+/* Material Buttons */
+.mdl-button--fab.mdl-button--mini-fab{
+  height: 30px !important;
+  min-width: 30px !important;
+  width: 30px !important;
+}
+
+.mdl-button--fab.mdl-button--colored {
+  background: #006B31 !important;
 }
